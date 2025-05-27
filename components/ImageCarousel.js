@@ -46,17 +46,27 @@ export default function ImageCarousel() {
   return (
     <div
       ref={containerRef}
-      className="flex gap-14 overflow-x-auto p-4 scroll-smooth relative"
-      style={{ scrollBehavior: 'smooth', whiteSpace: 'nowrap', position: 'relative'
-       }}
+      className="flex gap-12 overflow-x-auto py-12 px-8 scroll-smooth relative"
+      style={{ 
+        scrollBehavior: 'smooth', 
+        whiteSpace: 'nowrap',
+        scrollbarWidth: 'none' // Hide scrollbar for cleaner look
+      }}
     >
       {images.map((img, i) => (
-        <img
-          key={`photo-${i}`}
-          src={`/images/${img}`}
-          alt={`photo ${i + 1}`}
-          className="inline-block w-48 h-70 object-cover rounded-lg flex-shrink-0 transition-transform duration-300 hover:scale-105"
-        />
+        <div 
+          key={`photo-card-${i}`}
+          className="inline-block flex-shrink-0 transition-transform duration-300 hover:scale-105"
+        >
+          <img
+            src={`/images/${img}`}
+            alt={`photo ${i + 1}`}
+            className="w-96 h-[32rem] object-cover rounded-xl shadow-lg border-2 border-white/20"
+            style={{
+              boxShadow: '0 10px 25px -5px rgba(0, 0, 0, 0.5)'
+            }}
+          />
+        </div>
       ))}
     </div>
   );

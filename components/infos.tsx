@@ -1,3 +1,4 @@
+'use client';
 import React, { useState, useEffect, useRef } from 'react';
 
 // Types
@@ -69,7 +70,7 @@ const Avatar: React.FC<{ user: User }> = ({ user }) => {
     .toUpperCase();
 
   return (
-    <div className="w-12 h-12 rounded-full bg-gradient-to-r from-white-500 to-white-500 flex items-center justify-center text-white font-bold text-lg mr-4">
+    <div className="w-24 h-2 4rounded-full bg-gradient-to-r from-white-500 to-white-500 flex items-center justify-center text-white font-bold text-lg mr-4">
       {user.avatar}
     </div>
   );
