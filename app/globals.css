@@ -1,0 +1,93 @@
+@import "tailwindcss";
+
+:root {
+  --background: #ffffff;
+  --foreground: #171717;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #0a0a0a;
+    --foreground: #ededed;
+  }
+}
+
+.body-bg {
+  background-image: url('/gtacover.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed; /* background stays fixed */
+  min-height: 100vh;
+  width: 100%;
+  color: white;
+  /* remove position fixed */
+  z-index: 0; /* make sure it's behind */
+
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+}
+
+.body-bg::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.5); /* dark overlay */
+  z-index: -1;
+}
+
+header {
+  background-color: rgba(0, 0, 0, 0.5); /* semi-transparent black */
+  position: fixed;  /* fixed so it stays at top */
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 1000;
+  padding: 1rem;
+}
+
+/* Add this to main or container wrapping your page content */
+main {
+  padding-top: 64px; /* adjust to your header height */
+  min-height: 100vh;
+  position: relative;
+  z-index: 10; /* above background */
+  color: white;
+}
+
+/*mouse*/
+.zoom-img {
+  transition: transform 0.3s ease-in-out;
+}
+
+.zoom-img:hover {
+  transform: scale(1.1);
+}
+
+/*slider*/
+@keyframes scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+
+.animate-scroll {
+  animation: scroll 20s linear infinite;
+}
+
+.tools .slider-nav a {
+    color: #fff;
+    padding: 0 6px 0 13px;
+    font-weight: 700;
+    font-size: 20px;
+    line-height: 2.7rem;
+}
